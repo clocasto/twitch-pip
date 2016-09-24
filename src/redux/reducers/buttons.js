@@ -11,6 +11,18 @@ const buttonReducer = function(state = [], action){
         ...state,
         width: state.width + action.px
       }
+    case 'SET_POSITION':
+      console.log('settingstate: ', state)
+      return {
+        ...state,
+        pos: {x:200, y:200}
+      }
+    case 'RESET_POSITION':
+      console.log('resettingstate: ',state)
+      return {
+        ...state,
+        pos: {x:0, y:0}
+      }
     case 'TOGGLE_POSITIONS':
       console.log(state)
       return {

@@ -14,7 +14,9 @@ const fat = {
     bottom: 0,
     top: null,
     left: null,
-    zIndex: -1
+    zIndex: -1,
+    transform: 'none !important',
+    "-webkit-transform": "none"
 }
 
 const thin = {
@@ -26,7 +28,9 @@ const thin = {
     left: 0,
     bottom: null,
     right: null,
-    zIndex: 1
+    zIndex: 1,
+    transform: 'none !important',
+    "-webkit-transform": "none"
 }
 
 
@@ -36,7 +40,9 @@ const defaultState = {
         thin: thin,
         fat: fat,
         one: 'thin',
-        two: 'fat'
+        two: 'fat',
+        pos: null,
+        homePosition: {x:0, y:0}
     }
 }
 

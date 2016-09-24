@@ -4,6 +4,17 @@ export function swapPositions(){
 	}
 }
 
+export function setPosition(){
+	return {
+		type: 'SET_POSITION'
+	}
+}
+
+export function resetPosition(){
+	return {
+		type: 'RESET_POSITION'
+	}
+}
 
 export function makeTaller(px){
 	return {
