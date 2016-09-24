@@ -6,7 +6,8 @@ import Main from './Main';
 
 function mapStateToProps(state) {
     return {
-        test: state.playerReducer
+        test: state.playerReducer,
+        style: state.buttonReducer
     };
 }
 

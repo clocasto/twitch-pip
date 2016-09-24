@@ -1,13 +1,26 @@
-export function func1(index){
+export function swapPositions(){
 	return {
-		type: 'TURN_ON',
-		index
+		type: 'TOGGLE_POSITIONS'
 	}
 }
 
-export function func2(whoa){
+
+export function makeTaller(px){
 	return {
-		type: 'TURN_OFF',
-		whoa
+		type: 'MAKE_TALLER',
+		px
+	}
+}
+
+export function makeWider(px){
+	return {
+		type: "MAKE_WIDER",
+		px
+	}
+}
+
+export function toggleColor(){
+	return {
+		type: "TOGGLE_COLOR"
 	}
 }
