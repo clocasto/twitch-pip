@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
-import Player from './player.jsx'
+import Player from './player.jsx';
+import Console from './Console';
 
 class Main extends Component {
   render() {
@@ -11,9 +12,9 @@ class Main extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/fartpoop.js</code> and save to reload.
-        </p>
+        <div className="App-intro">
+          <Console {...this.props} />
+        </div>
         <Player {...this.props} />
       </div>
     );
