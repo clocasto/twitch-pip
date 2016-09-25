@@ -9,6 +9,7 @@
 }
 
 .drag {
+  border-radius: 50%;
   height: 25px;
   width: 25px;
   position: absolute;
@@ -16,14 +17,31 @@
   right: 0px;
 }
 
-.drag:hover {
+.drag:hover, .drag:active {
   cursor: pointer;
   background-color: white;
   transition: ease 0.1s all;
   transform: scale(1.2);
+
 }
 
 #shield {
   position: absolute;
 }
 
+#resizer {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+#resizer:hover, #resizer:active {
+  cursor: pointer;
+  background-color: red;
+  transition: ease 0.1s all;
+  transform: scale(1.2);
+
+}

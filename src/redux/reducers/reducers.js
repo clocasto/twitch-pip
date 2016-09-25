@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import playerReducer from './player';
-import buttonReducer from  './buttons'
+import { pip } from './pip-player';
+import { button } from './buttons';
 
-const rootReducer = combineReducers({ playerReducer, buttonReducer, routing: routerReducer });
+const rootReducer = combineReducers({ pip, button, routing: routerReducer });
 
 export default rootReducer;

@@ -6,12 +6,9 @@ export function swapPositions() {
     }
 }
 
-export function dragCreator(event) {
+export function dragPip(event) {
 
-    let size = event.type === 'mousedown' ? '100%' : '0%';
-    // let shield = document.getElementById('shield');
-    // shield.style.setProperty('height', size);
-    // shield.style.setProperty('width', size);
+    let size = event.type === 'mouseup' ? '0%' : '100%';
 
     return {
         type: 'DRAG_PIP',
@@ -20,10 +17,44 @@ export function dragCreator(event) {
 
 }
 
+export function toggleResize(event) {
 
-export function resize(event) {
+    let status = event.type === 'mouseup' ? false : true;
 
     return {
-        type: 'RESIZE_PIP'
+        type: 'ENABLE_RESIZE',
+        status
     }
+
+}
+
+export function resizePip(event) {
+    event.preventDefault();
+
+    let size, xcoord, ycoord;
+
+    if (event.buttons) {
+
+        size = '100%';
+        return {
+            type: 'START_RESIZE_PIP',
+            reference: { x: event.clientX, y: event.clientY },
+            size,
+            disabled: true
+        }
+    } else {
+        console.log('END_RESIZE_PIP');
+        size = '0%';
+        return {
+            type: 'END_RESIZE_PIP',
+            end: {
+                x: event.clientX,
+                y: event.clientY
+            },
+            reference: { x: 0, y: 0 },
+            size,
+            disabled: false
+        }
+    }
+
 }

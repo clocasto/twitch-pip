@@ -5,28 +5,38 @@ import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/reducers.js';
 
-const fat = {
+const base = {
     height: '100%',
     width: '100%',
-    color: 'red',
-    zIndex: -10
+    zIndex: -10,
+    enabled: false
 }
-
-const thin = {
-    height: 141,
-    width: 250,
-    color: 'green',
-    zIndex: 10
-}
-
 
 const defaultState = {
-    playerReducer: { alex: 'memes' },
-    buttonReducer: {
-        thin: thin,
-        fat: fat,
-        one: 'thin',
-        two: 'fat'
+    pip: {
+        shield: {
+            height: '0%',
+            width: '0%'
+        },
+        reference: {
+            x: 0,
+            y: 0
+        },
+        style: {
+            size: {
+                height: 141,
+                width: 250
+            },
+            zIndex: 10,
+            enabled: true
+        },
+        disabled: false,
+        resize: false
+    },
+    button: {
+        base,
+        one: 'pip',
+        two: 'base'
     }
 }
 

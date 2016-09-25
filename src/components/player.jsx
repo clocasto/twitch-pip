@@ -5,11 +5,29 @@ import Draggable, {DraggableCore} from 'react-draggable';
 
 class Player extends Component {
   render() {
-		let { style } = this.props;
-		let one = style[style.one];
-		let two = style[style.two];
+		let { pip } = this.props;
+		let dragPip = this.props.dragPip;
+		let resizePip = this.props.resizePip;
+		let toggleResize = this.props.toggleResize;
+
+		let small = {
+			...pip.style,
+			...pip.style.size
+		};
+		let large = this.props.style.base;
+		let styles = {pip: small, base: large}
+
+		let one = styles[this.props.style.one];
+		let two = styles[this.props.style.two];
+
+		console.log('one', one);
+		console.log('two', two);
 
 		let oneInfo = {
+			pip,
+			dragPip,
+			resizePip,
+			toggleResize,
 			info: {	
 				name: 'one',
 				stream: 'hearthstonefr',
@@ -18,15 +36,16 @@ class Player extends Component {
 			style: {
 				height: one.height,
 				width: one.width,
-				top: one.top,
-				left: one.left,
-				bottom: one.bottom,
-				right: one.right,
-				zIndex: one.zIndex
+				zIndex: one.zIndex,
+				enabled: one.enabled
 			}
 		} 
 
 		let twoInfo = {
+			pip,
+			dragPip,
+			resizePip,
+			toggleResize,
 			info: {	
 				name: 'two',
 				stream: 'siractionslacks',
@@ -35,11 +54,8 @@ class Player extends Component {
 			style: {
 				height: two.height,
 				width: two.width,
-				bottom: two.bottom,
-				right: two.right,
-				top: two.top,
-				left: two.left,
-				zIndex: two.zIndex
+				zIndex: two.zIndex,
+				enabled: two.enabled
 			}
 		}
 

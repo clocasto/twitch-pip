@@ -15,45 +15,31 @@ class TwitchPlayer extends Component {
         let player = new Twitch.Player(info.name, options);
         
         player.setVolume(0.5);
-        // player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
+        player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
     }
 
     render() {
 
         let { style } = this.props;
         let { info } = this.props;
-        let enabler = style.zIndex > 0 ? true : false;
-        
-        let drag = function(event) {
-            let size = event.type === 'mousedown' ? '100%' : '0%';
-            let shield = document.getElementById('shield');
-            shield.style.setProperty('height', size);
-            shield.style.setProperty('width', size);
-        }
+        let { pip } = this.props;
+        let dragPip = this.props.dragPip;
+        let resizePip = this.props.resizePip;
+        let toggleResize = this.props.toggleResize;
 
-        let resize = function(){}
-
-        // $(document).mousemove(function(event) {
-        // var startingTop = 10,
-        // startingLeft = 22,
-        // math = Math.round(Math.sqrt(Math.pow(startingTop - event.clientY, 2) +
-        //     Math.pow(startingLeft - event.clientX, 2))) + 'px';
-        // $('span').text('From your starting point(22x10) you moved:   ' + math);
-        // });
-
-
+        let enabler = style.enabled ? true : false;
 
         return ( 
-            <Draggable bounds="parent" disabled={ !enabler }>
+            <Draggable cancel="#resizer" bounds="parent" disabled={ pip.disabled || !enabler }>
 
                 <div style={ style } id={ info.name } className={enabler ? "pip" : "base"}>
                 
-                    {enabler && <div id="shield" onMouseUp={drag}></div>}
+                    {enabler && <div id="shield" style={pip.shield} onMouseUp={dragPip.bind(null)}></div>}
                 
-                    <div onMouseDown={drag} onMouseUp={drag} className={enabler ? "drag" : null}>
+                    <div onMouseDown={dragPip.bind(null)} onMouseUp={dragPip.bind(null)} className={enabler ? "drag" : null}>
                     </div>
 
-                    {enabler && <div onMouseMove={resize} className={enabler ? "resizer" : null}></div>}
+                    {enabler && <div id="resizer" onMouseDown={toggleResize.bind(null)} onMouseMove={resizePip.bind(null)}></div>}
 
                 </div>
 

@@ -12,5 +12,4 @@ class Console extends Component {
   }
 }
 
-
 export default Console
