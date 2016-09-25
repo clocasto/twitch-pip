@@ -30,7 +30,7 @@ class Player extends Component {
 			dragPip,
 			resizePip,
 			toggleResize,
-			info: {	
+			info: {
 				name: 'one',
 				stream: 'theblinks',
 				disabled: false
@@ -41,14 +41,14 @@ class Player extends Component {
 				zIndex: one.zIndex,
 				enabled: one.enabled
 			}
-		} 
+		}
 
 		let twoInfo = {
 			pip,
 			dragPip,
 			resizePip,
 			toggleResize,
-			info: {	
+			info: {
 				name: 'two',
 				stream: 'pokelawls',
 				disabled: true
@@ -68,8 +68,10 @@ class Player extends Component {
 
     return (
     	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
-			<TwitchPlayer {...oneInfo} />
-			<TwitchPlayer {...twoInfo} />
+				<TwitchPlayer {...twoInfo}>
+				</TwitchPlayer>
+				<TwitchPlayer {...oneInfo} >
+				</TwitchPlayer>
 		</div>
 		);
 	}

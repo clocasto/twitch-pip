@@ -13,7 +13,7 @@ class TwitchPlayer extends Component {
         };
 
         let player = new Twitch.Player(info.name, options);
-        
+
         player.setVolume(0.5);
         player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
     }
@@ -29,13 +29,13 @@ class TwitchPlayer extends Component {
 
         let enabler = style.enabled ? true : false;
 
-        return ( 
+        return (
             <Draggable cancel="#resizer" bounds="parent" disabled={ pip.disabled || !enabler }>
 
                 <div style={ style } id={ info.name } className={enabler ? "pip" : "base"}>
-                
+
                     {enabler && <div id="shield" style={pip.shield} onMouseUp={dragPip.bind(null)}></div>}
-                
+
                     <div onMouseDown={dragPip.bind(null)} onMouseUp={dragPip.bind(null)} className={enabler ? "drag" : null}>
                     </div>
 
