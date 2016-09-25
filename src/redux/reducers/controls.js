@@ -8,8 +8,8 @@ export const controls = function(state = [], action){
     case 'TOGGLE_POSITIONS':
       return {
         ...state,
-        one: state.one === 'pip' ? 'base' : 'pip',
-        two: state.two === 'pip' ? 'base' : 'pip'
+        '1': state['1'] === 'pip' ? 'base' : 'pip',
+        '2': state['2'] === 'pip' ? 'base' : 'pip'
       }
     default:
       return state
