@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Console from './Console';
 import TwitchPlayer from './twitch';
+import Draggable, {DraggableCore} from 'react-draggable';
 
 class Player extends Component {
   render() {
@@ -51,10 +52,20 @@ class Player extends Component {
 
     return (
     	<div style={pdiv}>
-			<TwitchPlayer {...oneInfo}>
-			</TwitchPlayer>
-			<TwitchPlayer {...twoInfo}>
-			</TwitchPlayer>
+			<Draggable
+				bounds="parent"
+				>
+			<div id="what">
+				<TwitchPlayer {...oneInfo}>
+				</TwitchPlayer>
+				<br />
+				<br />
+				XXXXXXXX
+				</div>
+			</Draggable>
+				<TwitchPlayer {...twoInfo}>
+				</TwitchPlayer>
+
 		</div>
 
 

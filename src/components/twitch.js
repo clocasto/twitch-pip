@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Draggable from 'react-draggable'
 
 class TwitchPlayer extends Component {
 
@@ -22,9 +23,9 @@ class TwitchPlayer extends Component {
     render() {
         let { style } = this.props;
         return ( 
-        	<div style={style}
-            	id={ this.props.info.name }
-            />
+        	<div style={style} id={ this.props.info.name }>
+            </div>
+
         );
     }
 }
