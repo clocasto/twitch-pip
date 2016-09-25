@@ -12,14 +12,12 @@ class Player extends Component {
 		let oneInfo = {
 			info: {	
 				name: 'one',
-				stream: 'gosutv_ow',
+				stream: 'hearthstonefr',
 				disabled: false
 			},
 			style: {
 				height: one.height,
 				width: one.width,
-				backgroundColor: 'green',
-				position: 'absolute',
 				top: one.top,
 				left: one.left,
 				bottom: one.bottom,
@@ -37,8 +35,6 @@ class Player extends Component {
 			style: {
 				height: two.height,
 				width: two.width,
-				backgroundColor: 'red',
-				position: 'absolute',
 				bottom: two.bottom,
 				right: two.right,
 				top: two.top,
