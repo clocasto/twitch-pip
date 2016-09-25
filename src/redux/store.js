@@ -37,8 +37,10 @@ const defaultState = {
         size: {
             height: '600',
             width: '250'
-        }
-    }
+        },
+        source: 'http://www.twitch.tv/overwatchopen/chat'
+    },
+    application: []
 }
 
 const store = createStore(rootReducer, defaultState);

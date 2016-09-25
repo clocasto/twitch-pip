@@ -9,7 +9,7 @@ class Main extends Component {
   render() {
     return (
       <div className="App row">
-      	<Navigation />
+      	<Navigation {...this.props} />
         <div className="col-md-9">
           <Player {...this.props} />
         </div>

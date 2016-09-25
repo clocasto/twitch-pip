@@ -3,6 +3,7 @@ import TwitchPlayer from './twitch';
 import Draggable, {DraggableCore} from 'react-draggable';
 
 class Player extends Component {
+	
   render() {
 
 		let { pip } = this.props;
@@ -10,6 +11,7 @@ class Player extends Component {
 		let resizePip = this.props.resizePip;
 		let toggleResize = this.props.toggleResize;
 		let swapPositions = this.props.swapPositions;
+		let switchChannel = this.props.switchChannel;
 
 		const base = {
 		    height: '100%',
@@ -24,60 +26,43 @@ class Player extends Component {
 			...pip.style.size
 		};
 		let styles = {pip: small, base}
+		let props = this.props;
 
-		let one = styles[this.props.style['1']];
-		let two = styles[this.props.style['2']];
 
-		let oneInfo = {
-			pip,
-			dragPip,
-			resizePip,
-			toggleResize,
-			swapPositions,
-			info: {
-				name: 'one',
-				stream: 'imaqtpie',
-				disabled: false,
-				muted: one.muted
-			},
-			style: {
-				height: one.height,
-				width: one.width,
-				zIndex: one.zIndex,
-				enabled: one.enabled
-			}
-		}
+		let makeStyle = function(id) {
+			let config = props.app[id].size;
 
-		let twoInfo = {
-			pip,
-			dragPip,
-			resizePip,
-			toggleResize,
-			swapPositions,
-			info: {
-				name: 'two',
-				stream: 'overwatchopen',
-				disabled: true,
-				muted: two.muted
-			},
-			style: {
-				height: two.height,
-				width: two.width,
-				zIndex: two.zIndex,
-				enabled: two.enabled
+			return {
+				pip,
+				dragPip,
+				resizePip,
+				toggleResize,
+				swapPositions,
+				switchChannel,
+				info: {
+					name: id.toString(),
+					stream: props.app[id].name,
+					disabled: false,
+					muted: styles[config].muted
+				},
+				style: {
+					height: styles[config].height,
+					width: styles[config].width,
+					zIndex: styles[config].zIndex,
+					enabled: styles[config].enabled
+				}
 			}
 		}
 
 		let pdiv = {
 			position: 'relative',
-			height: window.innerHeight - 52,
+			height: '605px',
 			width: '100%'
 		}
 
     return (
     	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
-				<TwitchPlayer {...twoInfo} />
-				<TwitchPlayer {...oneInfo} />
+			{this.props.app.map(player => <TwitchPlayer key={player.id} {...makeStyle(player.id)} />)}
 		</div>
 		);
 	}

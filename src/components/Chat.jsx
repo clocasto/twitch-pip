@@ -9,6 +9,7 @@ class Chat extends Component {
 		let newWidth = container.clientWidth;
 		let newHeight = container.clientHeight;
 
+		if (newWidth === size.width) return;
 		this.props.resizeChat(newHeight, newWidth);
 
 	}
@@ -20,7 +21,7 @@ class Chat extends Component {
       	<iframe frameBorder="0" 
 	        scrolling="no" 
 	        id="chat_embed" 
-	        src="http://www.twitch.tv/overwatchopen/chat" 
+	        src={this.props.chat.source}
 	        height={size.height}
 	        width={size.width}>
 		    </iframe>

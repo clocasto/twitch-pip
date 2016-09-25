@@ -15,13 +15,12 @@ class TwitchPlayer extends Component {
 
         this.player = new Twitch.Player(info.name, options);
 
-        console.log('twitchprops', this.props)
         this.player.setVolume(0.5);
         this.player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
     }
 
     render() {
-        // console.log('kids',document.getElementById(this.props.info.name).childNodes)
+
         let { style } = this.props;
         let { info } = this.props;
         let { pip } = this.props;
@@ -29,9 +28,9 @@ class TwitchPlayer extends Component {
         let resizePip = this.props.resizePip;
         let toggleResize = this.props.toggleResize;
         let swapPositions = this.props.swapPositions;
+        let switchChannel = this.props.switchChannel;
 
         let enabler = style.enabled ? true : false;
-        console.log('muted?',this.props.info.muted)
 
         //handle stream muting
         let muted = this.props.info.muted ? true : false;
@@ -42,7 +41,6 @@ class TwitchPlayer extends Component {
 
                 <div style={ style } id={ info.name } className={enabler ? "pip" : "base"}>
 
-
                     <div onMouseDown={dragPip.bind(null)} onMouseUp={dragPip.bind(null)} className={enabler ? "drag" : null}>
                     </div>
 
@@ -52,7 +50,7 @@ class TwitchPlayer extends Component {
                         <img className='icon' id='resizepng' src="/Resize2.png" />
                     </div>}
 
-                    {enabler && <div className="swapper" onClick={swapPositions.bind(null)}></div>}
+                    {enabler && <div className="swapper" onClick={swapPositions(info.name).bind(null)}></div>}
 
                 </div>
 

@@ -3,9 +3,18 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button, FormGroup, FormCon
 import React, { Component } from 'react';
 
 class ControlPanel extends Component {
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let name = this.refs.newstream.value;
+    this.refs.streamform.reset();
+    return this.props.addPlayer(name);
+  }
+
   render() {
+
     return (
-      <Navbar inverse>
+      <Navbar id="main-navbar" inverse>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#">Twitch PiP</a>
@@ -26,13 +35,10 @@ class ControlPanel extends Component {
           </Nav>
           <Nav pullRight>
             <Navbar.Form pullRight>
-              <FormGroup>
-                <FormControl type="text" placeholder="Stream1" />
-                {'  '}
-                <FormControl type="text" placeholder="Stream2" />
-              </FormGroup>
-              {/* {' '}
-              <Button type="submit">Submit</Button> */}
+              <form ref="streamform" onSubmit={this.handleSubmit.bind(this)}>
+                <input type="text" ref="newstream" placeholder="Stream Name" />
+                <button type="submit">Add Stream</button>
+              </form>
             </Navbar.Form>
           </Nav>
         </Navbar.Collapse>

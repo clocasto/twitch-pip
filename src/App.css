@@ -11,7 +11,6 @@
 #chatbox {
   margin: 0;
   padding: 0;
-  background-color: red;
 }
 
 .drag {
@@ -74,4 +73,8 @@
 
 .row > div {
   padding: 0;
+}
+
+#main-navbar {
+  margin: 0;
 }

@@ -1,10 +1,6 @@
 export const controls = function(state = {}, action) {
 
     switch (action.type) {
-        case 'ADD_PIP':
-            return {
-                ...state
-            }
 
         case 'TOGGLE_POSITIONS':
             return {
