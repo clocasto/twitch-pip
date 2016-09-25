@@ -40,7 +40,6 @@
 
 .resizer:hover, .resizer:active {
   cursor: pointer;
-  background-color: red;
   transition: ease 0.1s all;
   transform: scale(1.2);
 
