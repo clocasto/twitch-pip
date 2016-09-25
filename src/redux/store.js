@@ -21,7 +21,9 @@ const defaultState = {
                 width: 250
             },
             zIndex: 10,
-            enabled: true
+            enabled: true,
+            muted: true
+
         },
         disabled: false,
         resize: false

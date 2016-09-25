@@ -14,6 +14,7 @@ class Player extends Component {
 		const base = {
 		    height: '100%',
 		    width: '100%',
+				muted: false,
 		    zIndex: this.props.style.baseZ,
 		    enabled: false
 		}
@@ -34,9 +35,10 @@ class Player extends Component {
 			toggleResize,
 			swapPositions,
 			info: {
-				name: '1',
-				stream: 'theblinks',
-				disabled: false
+				name: 'one',
+				stream: 'imaqtpie',
+				disabled: false,
+				muted: one.muted
 			},
 			style: {
 				height: one.height,
@@ -53,9 +55,10 @@ class Player extends Component {
 			toggleResize,
 			swapPositions,
 			info: {
-				name: '2',
-				stream: 'pokelawls',
-				disabled: true
+				name: 'two',
+				stream: 'overwatchopen',
+				disabled: true,
+				muted: two.muted
 			},
 			style: {
 				height: two.height,
