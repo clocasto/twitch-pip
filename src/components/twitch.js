@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable'
 
+
 class TwitchPlayer extends Component {
     componentDidMount() {
 
@@ -12,22 +13,27 @@ class TwitchPlayer extends Component {
             channel: info.stream
         };
 
-        let player = new Twitch.Player(info.name, options);
+        this.player = new Twitch.Player(info.name, options);
 
-        player.setVolume(0.5);
-        player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
+        console.log('twitchprops', this.props)
+        this.player.setVolume(0.5);
+        this.player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
     }
 
     render() {
-
+        // console.log('kids',document.getElementById(this.props.info.name).childNodes)
         let { style } = this.props;
         let { info } = this.props;
         let { pip } = this.props;
         let dragPip = this.props.dragPip;
         let resizePip = this.props.resizePip;
         let toggleResize = this.props.toggleResize;
-
         let enabler = style.enabled ? true : false;
+        console.log('muted?',this.props.info.muted)
+
+        //handle stream muting
+        let muted = this.props.info.muted ? true : false;
+        if (this.player) this.player.setMuted(muted);
 
         return (
             <Draggable cancel="#resizer" bounds="parent" disabled={ pip.disabled || !enabler }>

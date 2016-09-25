@@ -13,7 +13,8 @@ class Player extends Component {
 		    height: '100%',
 		    width: '100%',
 		    zIndex: 1,
-		    enabled: false
+		    enabled: false,
+				muted: false
 		}
 
 		let small = {
@@ -32,8 +33,9 @@ class Player extends Component {
 			toggleResize,
 			info: {
 				name: 'one',
-				stream: 'theblinks',
-				disabled: false
+				stream: 'imaqtpie',
+				disabled: false,
+				muted: one.muted
 			},
 			style: {
 				height: one.height,
@@ -50,8 +52,9 @@ class Player extends Component {
 			toggleResize,
 			info: {
 				name: 'two',
-				stream: 'pokelawls',
-				disabled: true
+				stream: 'overwatchopen',
+				disabled: true,
+				muted: two.muted
 			},
 			style: {
 				height: two.height,
