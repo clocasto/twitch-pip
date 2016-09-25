@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import Player from './player.jsx';
-import Console from './Console';
+import ControlPanel from './navbar.jsx'
 
 class Main extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-intro">
-          <Console {...this.props} />
-        </div>
+      	<ControlPanel />
         <Player {...this.props} />
       </div>
     );

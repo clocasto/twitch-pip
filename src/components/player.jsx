@@ -1,20 +1,22 @@
 import React, {Component} from 'react'
-import Console from './Console';
 import TwitchPlayer from './twitch';
 import Draggable, {DraggableCore} from 'react-draggable';
 
 class Player extends Component {
   render() {
+
 		let { pip } = this.props;
 		let dragPip = this.props.dragPip;
 		let resizePip = this.props.resizePip;
 		let toggleResize = this.props.toggleResize;
+		let swapPositions = this.props.swapPositions;
+
 		const base = {
 		    height: '100%',
 		    width: '100%',
-		    zIndex: 1,
-		    enabled: false,
-				muted: false
+				muted: false,
+		    zIndex: this.props.style.baseZ,
+		    enabled: false
 		}
 
 		let small = {
@@ -31,6 +33,7 @@ class Player extends Component {
 			dragPip,
 			resizePip,
 			toggleResize,
+			swapPositions,
 			info: {
 				name: 'one',
 				stream: 'imaqtpie',
@@ -50,6 +53,7 @@ class Player extends Component {
 			dragPip,
 			resizePip,
 			toggleResize,
+			swapPositions,
 			info: {
 				name: 'two',
 				stream: 'overwatchopen',
@@ -66,15 +70,13 @@ class Player extends Component {
 
 		let pdiv = {
 			position: 'relative',
-			height: '800px'
+			height: '600px'
 		}
 
     return (
     	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
-				<TwitchPlayer {...twoInfo}>
-				</TwitchPlayer>
-				<TwitchPlayer {...oneInfo} >
-				</TwitchPlayer>
+				<TwitchPlayer {...twoInfo} />
+				<TwitchPlayer {...oneInfo} />
 		</div>
 		);
 	}

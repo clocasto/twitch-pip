@@ -28,6 +28,8 @@ class TwitchPlayer extends Component {
         let dragPip = this.props.dragPip;
         let resizePip = this.props.resizePip;
         let toggleResize = this.props.toggleResize;
+        let swapPositions = this.props.swapPositions;
+
         let enabler = style.enabled ? true : false;
         console.log('muted?',this.props.info.muted)
 
@@ -36,16 +38,19 @@ class TwitchPlayer extends Component {
         if (this.player) this.player.setMuted(muted);
 
         return (
-            <Draggable cancel="#resizer" bounds="parent" disabled={ pip.disabled || !enabler }>
+            <Draggable cancel=".resizer" bounds="parent" disabled={ pip.disabled || !enabler }>
 
                 <div style={ style } id={ info.name } className={enabler ? "pip" : "base"}>
 
-                    {enabler && <div id="shield" style={pip.shield} onMouseUp={dragPip.bind(null)}></div>}
 
                     <div onMouseDown={dragPip.bind(null)} onMouseUp={dragPip.bind(null)} className={enabler ? "drag" : null}>
                     </div>
 
-                    {enabler && <div id="resizer" onMouseDown={toggleResize.bind(null)}></div>}
+                    {enabler && <div className="shield" style={pip.shield} onMouseUp={dragPip.bind(null)}></div>}
+
+                    {enabler && <div className="resizer" onMouseDown={toggleResize.bind(null)}></div>}
+
+                    {enabler && <div className="swapper" onClick={swapPositions.bind(null)}></div>}
 
                 </div>
 

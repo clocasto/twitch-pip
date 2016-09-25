@@ -9,10 +9,12 @@ export function swapPositions() {
 export function dragPip(event) {
 
     let size = event.type === 'mouseup' ? '0%' : '100%';
+    let baseZ = event.type === 'mouseup' ? 1 : -5;
 
     return {
         type: 'DRAG_PIP',
-        size
+        size,
+        baseZ
     }
 
 }
@@ -24,7 +26,8 @@ export function toggleResize(event) {
     return {
         type: 'ENABLE_RESIZE',
         reference: { x: event.pageX, y: event.pageY },
-        status
+        status,
+        baseZ: -5
     }
 
 }
@@ -56,14 +59,15 @@ export function resizePip(event) {
                 y: event.clientY
             },
             size,
-            disabled: false
+            disabled: false,
+            baseZ: 1
         }
     }
 
 }
 
 export function addPip() {
-    console.log('ADD_PIP');
+
     return {
         type: 'ADD_PIP'
     }
