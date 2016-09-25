@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Draggable from 'react-draggable'
+import Draggable from 'react-draggable';
 
 
 class TwitchPlayer extends Component {
@@ -48,7 +48,9 @@ class TwitchPlayer extends Component {
 
                     {enabler && <div className="shield" style={pip.shield} onMouseUp={dragPip.bind(null)}></div>}
 
-                    {enabler && <div className="resizer" onMouseDown={toggleResize.bind(null)}></div>}
+                    {enabler && <div className="resizer" onMouseDown={toggleResize.bind(null)}>
+                        <img className='icon' id='resizepng' src="/Resize2.png" />
+                    </div>}
 
                     {enabler && <div className="swapper" onClick={swapPositions.bind(null)}></div>}
 
