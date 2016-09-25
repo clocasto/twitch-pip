@@ -12,7 +12,7 @@ class Player extends Component {
 		const base = {
 		    height: '100%',
 		    width: '100%',
-		    zIndex: 1,
+		    zIndex: this.props.style.baseZ,
 		    enabled: false
 		}
 
@@ -31,7 +31,7 @@ class Player extends Component {
 			resizePip,
 			toggleResize,
 			info: {
-				name: 'one',
+				name: '1',
 				stream: 'theblinks',
 				disabled: false
 			},
@@ -49,7 +49,7 @@ class Player extends Component {
 			resizePip,
 			toggleResize,
 			info: {
-				name: 'two',
+				name: '2',
 				stream: 'pokelawls',
 				disabled: true
 			},
@@ -68,10 +68,8 @@ class Player extends Component {
 
     return (
     	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
-				<TwitchPlayer {...twoInfo}>
-				</TwitchPlayer>
-				<TwitchPlayer {...oneInfo} >
-				</TwitchPlayer>
+				<TwitchPlayer {...twoInfo} />
+				<TwitchPlayer {...oneInfo} />
 		</div>
 		);
 	}
