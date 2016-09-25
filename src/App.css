@@ -8,17 +8,23 @@
   position: absolute;
 }
 
+#chatbox {
+  margin: 0;
+  padding: 0;
+  background-color: red;
+}
+
 .drag {
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
+  border-radius: 25%;
+  height: 15px;
+  width: 15px;
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
 .drag:hover, .drag:active {
-  cursor: pointer;
+  cursor: move;
   background-color: white;
   transition: ease 0.1s all;
   transform: scale(1.2);
@@ -30,9 +36,9 @@
 }
 
 .resizer {
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
+  border-radius: 25%;
+  height: 15px;
+  width: 15px;
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -47,18 +53,26 @@
 }
 
 .swapper {
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
+  border-radius: 25%;
+  height: 15px;
+  width: 15px;
   position: absolute;
   top: 0px;
   left: 0px;
 }
 
 .swapper:hover, .swapper:active {
-  cursor: pointer;
+  cursor: alias;
   background-color: green;
   transition: ease 0.1s all;
   transform: scale(1.2);
 
+}
+
+.row {
+  margin: 0 auto;
+}
+
+.row > div {
+  padding: 0;
 }

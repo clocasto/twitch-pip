@@ -72,3 +72,14 @@ export function addPip() {
         type: 'ADD_PIP'
     }
 }
+
+export function resizeChat(height, width) {
+
+    return {
+        type: 'RESIZE_CHAT',
+        size: {
+            height,
+            width
+        }
+    }
+}
