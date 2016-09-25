@@ -10,14 +10,14 @@
 
 .drag {
   border-radius: 50%;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-.pip:hover, .drag:active {
+.drag:hover, .drag:active {
   cursor: pointer;
   background-color: white;
   transition: ease 0.1s all;
@@ -25,22 +25,39 @@
 
 }
 
-#shield {
+.shield {
   position: absolute;
 }
 
-#resizer {
+.resizer {
   border-radius: 50%;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   position: absolute;
   bottom: 0px;
   right: 0px;
 }
 
-.pip:hover, #resizer:active {
+.resizer:hover, .resizer:active {
   cursor: pointer;
   background-color: red;
+  transition: ease 0.1s all;
+  transform: scale(1.2);
+
+}
+
+.swapper {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.swapper:hover, .swapper:active {
+  cursor: pointer;
+  background-color: green;
   transition: ease 0.1s all;
   transform: scale(1.2);
 
