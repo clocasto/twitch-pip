@@ -25,10 +25,14 @@
 
 .drag:hover, .drag:active {
   cursor: move;
-  background-color: white;
   transition: ease 0.1s all;
   transform: scale(1.2);
 
+}
+
+.small-button {
+  color: #42a5f5;
+  position: absolute
 }
 
 .shield {
@@ -62,7 +66,6 @@
 
 .swapper:hover, .swapper:active {
   cursor: alias;
-  background-color: green;
   transition: ease 0.1s all;
   transform: scale(1.2);
 
