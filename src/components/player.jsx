@@ -14,7 +14,7 @@ class Player extends Component {
 		const base = {
 		    height: '100%',
 		    width: '100%',
-			muted: false,
+				muted: false,
 		    zIndex: this.props.style.baseZ,
 		    enabled: false
 		}
@@ -75,7 +75,7 @@ class Player extends Component {
 		}
 
     return (
-    	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
+    	<div id='playercontainer' style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
 				<TwitchPlayer {...twoInfo} />
 				<TwitchPlayer {...oneInfo} />
 		</div>
