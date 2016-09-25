@@ -4,7 +4,8 @@ export const pip = function(state = {}, action) {
         case 'ENABLE_RESIZE':
             return {
                 ...state,
-                resize: true
+                resize: true,
+                reference: action.reference
             }
 
         case 'DRAG_PIP':
@@ -15,13 +16,20 @@ export const pip = function(state = {}, action) {
                     width: action.size
                 }
             }
-        case 'START_RESIZE_PIP':
+        case 'RESIZE_PIP':
 
             return {
                 ...state,
                 shield: {
                     height: action.size,
                     width: action.size
+                },
+                style: {
+                    ...state.style,
+                    size: {
+                        width: state.style.size.width + (action.end.x - state.reference.x),
+                        height: state.style.size.height + (action.end.y - state.reference.y)
+                    }
                 },
                 reference: action.reference,
                 disabled: true
@@ -38,11 +46,10 @@ export const pip = function(state = {}, action) {
                 style: {
                     ...state.style,
                     size: {
-                        width: state.style.size.width - (action.end.x - state.reference.x),
+                        width: state.style.size.width + (action.end.x - state.reference.x),
                         height: state.style.size.height + (action.end.y - state.reference.y)
                     }
                 },
-                reference: action.reference,
                 disabled: false,
                 resize: false
             }

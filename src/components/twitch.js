@@ -39,7 +39,7 @@ class TwitchPlayer extends Component {
                     <div onMouseDown={dragPip.bind(null)} onMouseUp={dragPip.bind(null)} className={enabler ? "drag" : null}>
                     </div>
 
-                    {enabler && <div id="resizer" onMouseDown={toggleResize.bind(null)} onMouseMove={resizePip.bind(null)}></div>}
+                    {enabler && <div id="resizer" onMouseDown={toggleResize.bind(null)}></div>}
 
                 </div>
 

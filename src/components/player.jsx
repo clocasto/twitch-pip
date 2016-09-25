@@ -20,9 +20,6 @@ class Player extends Component {
 		let one = styles[this.props.style.one];
 		let two = styles[this.props.style.two];
 
-		console.log('one', one);
-		console.log('two', two);
-
 		let oneInfo = {
 			pip,
 			dragPip,
@@ -48,7 +45,7 @@ class Player extends Component {
 			toggleResize,
 			info: {	
 				name: 'two',
-				stream: 'siractionslacks',
+				stream: 'pokelawls',
 				disabled: true
 			},
 			style: {
@@ -61,11 +58,11 @@ class Player extends Component {
 
 		let pdiv = {
 			position: 'relative',
-			height: '600px'
+			height: '800px'
 		}
 
     return (
-    	<div style={pdiv}>
+    	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
 			<TwitchPlayer {...oneInfo} />
 			<TwitchPlayer {...twoInfo} />
 		</div>

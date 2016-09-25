@@ -23,13 +23,13 @@ export function toggleResize(event) {
 
     return {
         type: 'ENABLE_RESIZE',
+        reference: { x: event.pageX, y: event.pageY },
         status
     }
 
 }
 
 export function resizePip(event) {
-    event.preventDefault();
 
     let size, xcoord, ycoord;
 
@@ -37,13 +37,17 @@ export function resizePip(event) {
 
         size = '100%';
         return {
-            type: 'START_RESIZE_PIP',
+            type: 'RESIZE_PIP',
+            end: {
+                x: event.clientX,
+                y: event.clientY
+            },
             reference: { x: event.clientX, y: event.clientY },
             size,
             disabled: true
         }
     } else {
-        console.log('END_RESIZE_PIP');
+
         size = '0%';
         return {
             type: 'END_RESIZE_PIP',
@@ -51,7 +55,6 @@ export function resizePip(event) {
                 x: event.clientX,
                 y: event.clientY
             },
-            reference: { x: 0, y: 0 },
             size,
             disabled: false
         }

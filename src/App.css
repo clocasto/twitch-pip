@@ -17,7 +17,7 @@
   right: 0px;
 }
 
-.drag:hover, .drag:active {
+.pip:hover, .drag:active {
   cursor: pointer;
   background-color: white;
   transition: ease 0.1s all;
@@ -35,10 +35,10 @@
   width: 25px;
   position: absolute;
   bottom: 0px;
-  left: 0px;
+  right: 0px;
 }
 
-#resizer:hover, #resizer:active {
+.pip:hover, #resizer:active {
   cursor: pointer;
   background-color: red;
   transition: ease 0.1s all;
