@@ -28,7 +28,8 @@ const defaultState = {
     },
     controls: {
         '1': 'pip',
-        '2': 'base'
+        '2': 'base',
+        baseZ: 1
     }
 }
 
