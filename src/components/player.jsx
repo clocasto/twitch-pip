@@ -1,14 +1,16 @@
 import React, {Component} from 'react'
-import Console from './Console';
 import TwitchPlayer from './twitch';
 import Draggable, {DraggableCore} from 'react-draggable';
 
 class Player extends Component {
   render() {
+
 		let { pip } = this.props;
 		let dragPip = this.props.dragPip;
 		let resizePip = this.props.resizePip;
 		let toggleResize = this.props.toggleResize;
+		let swapPositions = this.props.swapPositions;
+
 		const base = {
 		    height: '100%',
 		    width: '100%',
@@ -30,6 +32,7 @@ class Player extends Component {
 			dragPip,
 			resizePip,
 			toggleResize,
+			swapPositions,
 			info: {
 				name: '1',
 				stream: 'theblinks',
@@ -48,6 +51,7 @@ class Player extends Component {
 			dragPip,
 			resizePip,
 			toggleResize,
+			swapPositions,
 			info: {
 				name: '2',
 				stream: 'pokelawls',
