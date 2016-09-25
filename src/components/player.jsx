@@ -15,7 +15,10 @@ class Player extends Component {
 			style.pos = { x: 0, y: 0 };
 			this.props.swapPositions();
 			let greenDiv = document.getElementById('greenDiv')
-			greenDiv.style.setProperty('transform', 'none');
+			greenDiv.style.setProperty('transform', 'none')
+			let drag = document.getElementById('drag');
+			console.log('drag',drag)
+			style.pos = undefined
 			this.forceUpdate()
 		}.bind(this);
 		let freePos = function(){
@@ -67,6 +70,7 @@ class Player extends Component {
 				<br />
 				<br />
 				<Draggable
+					id = "drag"
 					defaultPosition={style.homePosition}
 					bounds="parent"
 				>
