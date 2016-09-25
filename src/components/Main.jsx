@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import Player from './player.jsx';
+import Chat from './Chat.jsx';
 import Navigation from './navbar.jsx'
 
 class Main extends Component {
@@ -12,7 +13,8 @@ class Main extends Component {
         <div className="col-md-9">
           <Player {...this.props} />
         </div>
-        <div className="col-md-3">
+        <div id="chatbox" className="col-md-3">
+          <Chat {...this.props}/>
         </div>
       </div>
     );

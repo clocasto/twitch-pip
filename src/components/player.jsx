@@ -14,7 +14,7 @@ class Player extends Component {
 		const base = {
 		    height: '100%',
 		    width: '100%',
-				muted: false,
+			muted: false,
 		    zIndex: this.props.style.baseZ,
 		    enabled: false
 		}

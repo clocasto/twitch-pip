@@ -32,6 +32,12 @@ const defaultState = {
         '1': 'pip',
         '2': 'base',
         baseZ: 1
+    },
+    chat: {
+        size: {
+            height: '600',
+            width: '250'
+        }
     }
 }
 

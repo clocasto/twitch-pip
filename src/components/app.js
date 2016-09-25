@@ -7,7 +7,8 @@ import Main from './Main';
 function mapStateToProps(state) {
     return {
         style: state.controls,
-        pip: state.pip
+        pip: state.pip,
+        chat: state.chat
     };
 }
 
