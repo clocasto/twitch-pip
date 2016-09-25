@@ -1,63 +1,71 @@
 import React, {Component} from 'react'
 import Console from './Console';
 import TwitchPlayer from './twitch';
+import Draggable, {DraggableCore} from 'react-draggable';
 
 class Player extends Component {
   render() {
-		let { style } = this.props;
-		let one = style[style.one];
-		let two = style[style.two];
+		let { pip } = this.props;
+		let dragPip = this.props.dragPip;
+		let resizePip = this.props.resizePip;
+		let toggleResize = this.props.toggleResize;
+
+		let small = {
+			...pip.style,
+			...pip.style.size
+		};
+		let large = this.props.style.base;
+		let styles = {pip: small, base: large}
+
+		let one = styles[this.props.style.one];
+		let two = styles[this.props.style.two];
 
 		let oneInfo = {
+			pip,
+			dragPip,
+			resizePip,
+			toggleResize,
 			info: {	
 				name: 'one',
-				stream: 'gosutv_ow'
+				stream: 'hearthstonefr',
+				disabled: false
 			},
 			style: {
 				height: one.height,
 				width: one.width,
-				backgroundColor: style.thin.color,
-				position: style.thin.position,
-				top: one.top,
-				left: one.left,
-				bottom: one.bottom,
-				right: one.right,
-				zIndex: one.zIndex
+				zIndex: one.zIndex,
+				enabled: one.enabled
 			}
 		} 
 
 		let twoInfo = {
+			pip,
+			dragPip,
+			resizePip,
+			toggleResize,
 			info: {	
 				name: 'two',
-				stream: 'siractionslacks'
+				stream: 'pokelawls',
+				disabled: true
 			},
 			style: {
 				height: two.height,
 				width: two.width,
-				backgroundColor: style.fat.color,
-				position: style.fat.position,
-				bottom: two.bottom,
-				right: two.right,
-				top: two.top,
-				left: two.left,
-				zIndex: two.zIndex
+				zIndex: two.zIndex,
+				enabled: two.enabled
 			}
 		}
 
 		let pdiv = {
 			position: 'relative',
-			height: '600px'
+			height: '800px'
 		}
 
     return (
-    	<div style={pdiv}>
-			<TwitchPlayer {...oneInfo}>
-			</TwitchPlayer>
-			<TwitchPlayer {...twoInfo}>
-			</TwitchPlayer>
+    	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
+			<TwitchPlayer {...oneInfo} />
+			<TwitchPlayer {...twoInfo} />
 		</div>
-
-
 		);
 	}
 }
