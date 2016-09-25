@@ -67,7 +67,7 @@ class Player extends Component {
 
 		let pdiv = {
 			position: 'relative',
-			height: '800px'
+			height: '600px'
 		}
 
     return (
