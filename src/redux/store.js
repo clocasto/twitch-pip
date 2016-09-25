@@ -9,11 +9,6 @@ const fat = {
     height: '100%',
     width: '100%',
     color: 'red',
-    position: 'absolute',
-    // right: 0,
-    // bottom: 0,
-    // top: null,
-    // left: null,
     zIndex: -10
 }
 
@@ -21,11 +16,6 @@ const thin = {
     height: 141,
     width: 250,
     color: 'green',
-    position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // bottom: null,
-    // right: null,
     zIndex: 10
 }
 

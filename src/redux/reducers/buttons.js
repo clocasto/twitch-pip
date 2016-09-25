@@ -6,13 +6,11 @@ const buttonReducer = function(state = [], action){
         height: state.height + action.px
       }
     case 'MAKE_WIDER':
-      console.log('wider')
       return {
         ...state,
         width: state.width + action.px
       }
     case 'TOGGLE_POSITIONS':
-      console.log(state)
       return {
         ...state,
         one: state.one === 'thin' ? 'fat' : 'thin',

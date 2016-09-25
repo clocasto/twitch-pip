@@ -5,4 +5,11 @@ const playerReducer = function(state = [], action) {
 	return state;
 }
 
+const dragPipReducer = function(state = {}, action) {
+	if(action.type === 'DRAG_PIP'){
+		console.log('hell yeah')
+	}
+	return state;
+}
+
 export default playerReducer;
