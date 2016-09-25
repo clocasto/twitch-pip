@@ -9,16 +9,21 @@ class Player extends Component {
 		let dragPip = this.props.dragPip;
 		let resizePip = this.props.resizePip;
 		let toggleResize = this.props.toggleResize;
+		const base = {
+		    height: '100%',
+		    width: '100%',
+		    zIndex: -10,
+		    enabled: false
+		}
 
 		let small = {
 			...pip.style,
 			...pip.style.size
 		};
-		let large = this.props.style.base;
-		let styles = {pip: small, base: large}
+		let styles = {pip: small, base}
 
-		let one = styles[this.props.style.one];
-		let two = styles[this.props.style.two];
+		let one = styles[this.props.style['1']];
+		let two = styles[this.props.style['2']];
 
 		let oneInfo = {
 			pip,
@@ -27,7 +32,7 @@ class Player extends Component {
 			toggleResize,
 			info: {	
 				name: 'one',
-				stream: 'hearthstonefr',
+				stream: 'theblinks',
 				disabled: false
 			},
 			style: {

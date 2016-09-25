@@ -61,3 +61,10 @@ export function resizePip(event) {
     }
 
 }
+
+export function addPip() {
+    console.log('ADD_PIP');
+    return {
+        type: 'ADD_PIP'
+    }
+}

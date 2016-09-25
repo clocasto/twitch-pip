@@ -6,7 +6,7 @@ import Main from './Main';
 
 function mapStateToProps(state) {
     return {
-        style: state.button,
+        style: state.controls,
         pip: state.pip
     };
 }

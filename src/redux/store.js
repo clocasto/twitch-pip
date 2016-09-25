@@ -5,13 +5,6 @@ import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/reducers.js';
 
-const base = {
-    height: '100%',
-    width: '100%',
-    zIndex: -10,
-    enabled: false
-}
-
 const defaultState = {
     pip: {
         shield: {
@@ -33,22 +26,14 @@ const defaultState = {
         disabled: false,
         resize: false
     },
-    button: {
-        base,
-        one: 'pip',
-        two: 'base'
+    controls: {
+        '1': 'pip',
+        '2': 'base'
     }
 }
 
 const store = createStore(rootReducer, defaultState);
 
 export const history = syncHistoryWithStore(browserHistory, store);
-
-// if (module.hot) {
-//  module.hot.accept('./reducers/', () => {
-//    let nextRootReducer = require('./reducers/reducers').default;
-//    store.replaceReducer(nextRootReducer);
-//  })
-// }
 
 export default store;

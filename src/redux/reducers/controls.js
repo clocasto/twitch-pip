@@ -1,14 +1,9 @@
-export const button = function(state = [], action){
+export const controls = function(state = [], action){
+  console.log('ADD_PIP -> STATE:', state);
   switch(action.type){
-    case 'MAKE_TALLER':
+    case 'ADD_PIP':
       return {
-        ...state,
-        height: state.height + action.px
-      }
-    case 'MAKE_WIDER':
-      return {
-        ...state,
-        width: state.width + action.px
+        ...state
       }
     case 'TOGGLE_POSITIONS':
       return {
