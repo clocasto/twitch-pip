@@ -12,7 +12,7 @@ class Player extends Component {
 		const base = {
 		    height: '100%',
 		    width: '100%',
-		    zIndex: -10,
+		    zIndex: 1,
 		    enabled: false
 		}
 
