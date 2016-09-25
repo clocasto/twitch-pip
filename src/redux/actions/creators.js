@@ -1,4 +1,7 @@
 export function swapPositions(){
+	let node = document.getElementsByClassName('pip')[0];
+		node.position
+		node.style.setProperty('transform', 'none');
 	return {
 		type: 'TOGGLE_POSITIONS'
 	}

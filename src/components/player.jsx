@@ -12,13 +12,14 @@ class Player extends Component {
 		let oneInfo = {
 			info: {	
 				name: 'one',
-				stream: 'gosutv_ow'
+				stream: 'gosutv_ow',
+				disabled: false
 			},
 			style: {
 				height: one.height,
 				width: one.width,
-				backgroundColor: style.thin.color,
-				position: style.thin.position,
+				backgroundColor: 'green',
+				position: 'absolute',
 				top: one.top,
 				left: one.left,
 				bottom: one.bottom,
@@ -30,13 +31,14 @@ class Player extends Component {
 		let twoInfo = {
 			info: {	
 				name: 'two',
-				stream: 'siractionslacks'
+				stream: 'siractionslacks',
+				disabled: true
 			},
 			style: {
 				height: two.height,
 				width: two.width,
-				backgroundColor: style.fat.color,
-				position: style.fat.position,
+				backgroundColor: 'red',
+				position: 'absolute',
 				bottom: two.bottom,
 				right: two.right,
 				top: two.top,
@@ -52,23 +54,9 @@ class Player extends Component {
 
     return (
     	<div style={pdiv}>
-			<Draggable
-				bounds="parent"
-				>
-			<div id="what">
-				<TwitchPlayer {...oneInfo}>
-				</TwitchPlayer>
-				<br />
-				<br />
-				XXXXXXXX
-				</div>
-			</Draggable>
-				<TwitchPlayer {...twoInfo}>
-				</TwitchPlayer>
-
+			<TwitchPlayer {...oneInfo} />
+			<TwitchPlayer {...twoInfo} />
 		</div>
-
-
 		);
 	}
 }
