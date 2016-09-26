@@ -3,6 +3,23 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button, FormGroup, FormCon
 import React, { Component } from 'react';
 
 class ControlPanel extends Component {
+  componentDidMount(){
+  this.toggleFullScreen = function() {
+    console.log('ayy')
+   let elem = document.getElementById("fullscreen");
+   let player = document.getElementById('playercontainer')
+   if (elem.requestFullscreen) {
+      player.requestFullscreen();
+   } else if (elem.msRequestFullscreen) {
+      player.msRequestFullscreen();
+   } else if (elem.mozRequestFullScreen) {
+      player.mozRequestFullScreen();
+   } else if (elem.webkitRequestFullscreen) {
+      player.webkitRequestFullscreen();
+   }
+
+}
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +46,7 @@ class ControlPanel extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="#">Top</NavItem>
+            <NavItem onClick={this.toggleFullScreen} id='fullscreen' eventKey={1} href="#">FullScreen</NavItem>
             <NavItem eventKey={2} href="#">About</NavItem>
             <NavDropdown eventKey={3} title="Memes" id="basic-nav-dropdown">
               <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.1}>siractionslacks</MenuItem>
