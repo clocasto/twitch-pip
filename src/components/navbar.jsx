@@ -20,7 +20,7 @@ class ControlPanel extends Component {
   render() {
 
     return (
-      <Navbar id="main-navbar" inverse>
+      <Navbar id="main-navbar">
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#">Twitch PiP</a>

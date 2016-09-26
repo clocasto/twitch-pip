@@ -7,7 +7,6 @@ export const application = function(state = [], action) {
             let newState = state.slice();
             let oldBase = state.find(player => player.size === 'base');
             let oldIdx = state.indexOf(oldBase);
-            console.log(oldBase);
 
             newState[action.base] = {
                 ...state[action.base],
@@ -26,7 +25,6 @@ export const application = function(state = [], action) {
             return [
                 ...state, {
                     ...action.player,
-                    id: state.length.toString(),
                     size: state.length > 0 ? 'pip' : 'base'
                 }
             ];

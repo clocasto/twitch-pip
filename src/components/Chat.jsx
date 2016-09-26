@@ -20,7 +20,7 @@ class Chat extends Component {
   	let activeChat = app.length ? app.find(player => player.size === 'base').source : null;
 
       return (
-      		<div id="chatbox" className="col-md-3">
+      		<div id="chatbox" className="col-md-3 col-lg-3">
 	      		{!!this.props.app.length && <iframe frameBorder="0" 
 			        scrolling="no" 
 			        id="chat_embed" 
