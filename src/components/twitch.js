@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable';
+import {Icon} from 'react-fa'
 
 
 class TwitchPlayer extends Component {
@@ -49,6 +50,8 @@ class TwitchPlayer extends Component {
                 <div style={ style } id={ info.name } className={enabler ? "pip" : "base"}>
 
                     <div onMouseDown={dragPip.bind(null)} onMouseUp={dragPip.bind(null)} className={enabler ? "drag" : null}>
+                        <Icon className='small-button' name='arrows'></Icon>
+
                     </div>
 
                     {enabler && <div className="shield" style={pip.shield} onMouseUp={dragPip.bind(null)}></div>}
@@ -57,8 +60,10 @@ class TwitchPlayer extends Component {
                         <img className='icon' id='resizepng' src="/Resize2.png" />
                     </div>}
 
-                    {enabler && <div className="swapper" onClick={swap.bind(this)}></div>}
-
+                    {enabler && <div className="swapper" onClick={swap.bind(this)}>
+                        <Icon className='small-button' name='expand'></Icon>
+                    </div>}
+                    
                     {enabler && <div className="closer" onClick={close.bind(this)}></div>}
 
                 </div>
