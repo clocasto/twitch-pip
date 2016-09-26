@@ -46,7 +46,8 @@ class Player extends Component {
 					stream: props.app[i].name,
 					disabled: false,
 					muted: styles[config].muted,
-					size: config
+					size: config,
+					id: i
 				},
 				style: {
 					height: styles[config].height,

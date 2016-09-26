@@ -98,7 +98,7 @@ export function addPlayer(name) {
 }
 
 export function closePlayer(id) {
-document.getElementById(id).style.setProperty('transform', 'none');
+
     return {
         type: 'CLOSE_PLAYER',
         id

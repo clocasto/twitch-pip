@@ -31,10 +31,7 @@ export const application = function(state = [], action) {
 
         case 'CLOSE_PLAYER':
 
-            return [
-                ...state.slice(0, action.id),
-                ...state.slice(action.id + 1)
-            ];
+            return state.filter((player, i) => i != action.id);
 
         default:
 

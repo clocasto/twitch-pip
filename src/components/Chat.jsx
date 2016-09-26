@@ -7,7 +7,7 @@ class Chat extends Component {
 		let {size} = this.props.chat;
 		let container = document.getElementById("chatbox");
 		let newWidth = container.clientWidth;
-		let newHeight = window.innerHeight - 52;
+		let newHeight = container.clientHeight;
 
 		if (newWidth === size.width) return;
 		this.props.resizeChat(newHeight, newWidth);

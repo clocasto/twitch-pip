@@ -18,6 +18,8 @@ class TwitchPlayer extends Component {
         this.player = new Twitch.Player(info.name, options);
 
         this.player.setVolume(0.5);
+        this.player.setQuality(info.size === 'base' ? 'high' : 'low');
+        this.player.setMuted(info.muted ? true : false);
         this.player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
     }
 
@@ -34,14 +36,15 @@ class TwitchPlayer extends Component {
             return this.props.swapPositions(info.name);
         }
 
-        let close = function() {
-            return this.props.closePlayer(info.name);
+        let close = function(e) {
+            return this.props.closePlayer(info.id);
         }
 
         let enabler = style.enabled ? true : false;
 
         //handle stream muting
         let muted = this.props.info.muted ? true : false;
+
         if (this.player) this.player.setMuted(muted);
 
         return (
