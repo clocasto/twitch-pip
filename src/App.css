@@ -11,6 +11,7 @@
 #chatbox {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .drag {
@@ -69,6 +70,7 @@
 
 .row {
   margin: 0 auto;
+  height: 720px;
 }
 
 .row > div {

@@ -3,6 +3,7 @@ import Draggable from 'react-draggable';
 
 
 class TwitchPlayer extends Component {
+
     componentDidMount() {
 
         let { info } = this.props;
@@ -30,6 +31,10 @@ class TwitchPlayer extends Component {
         let swapPositions = this.props.swapPositions;
         let switchChannel = this.props.switchChannel;
 
+        let swap = function() {
+            return this.props.swapPositions(info.name);
+        }
+
         let enabler = style.enabled ? true : false;
 
         //handle stream muting
@@ -50,7 +55,7 @@ class TwitchPlayer extends Component {
                         <img className='icon' id='resizepng' src="/Resize2.png" />
                     </div>}
 
-                    {enabler && <div className="swapper" onClick={swapPositions(info.name).bind(null)}></div>}
+                    {enabler && <div className="swapper" onClick={swap.bind(this)}></div>}
 
                 </div>
 

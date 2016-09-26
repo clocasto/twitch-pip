@@ -11,6 +11,12 @@ class ControlPanel extends Component {
     return this.props.addPlayer(name);
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return this.props.addPlayer(e.target.textContent);
+  }
+
   render() {
 
     return (
@@ -26,9 +32,9 @@ class ControlPanel extends Component {
             <NavItem eventKey={1} href="#">Top</NavItem>
             <NavItem eventKey={2} href="#">About</NavItem>
             <NavDropdown eventKey={3} title="Memes" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>siractionslacks</MenuItem>
-              <MenuItem eventKey={3.2}>ayylmao</MenuItem>
-              <MenuItem eventKey={3.3}>zekeswirl</MenuItem>
+              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.1}>siractionslacks</MenuItem>
+              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.2}>ayylmao</MenuItem>
+              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.3}>zekeswirl</MenuItem>
               <MenuItem divider />
               <MenuItem eventKey={3.3}>Separated link</MenuItem>
             </NavDropdown>

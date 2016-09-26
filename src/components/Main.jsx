@@ -13,9 +13,7 @@ class Main extends Component {
         <div className="col-md-9">
           <Player {...this.props} />
         </div>
-        <div id="chatbox" className="col-md-3">
           <Chat {...this.props}/>
-        </div>
       </div>
     );
   }
