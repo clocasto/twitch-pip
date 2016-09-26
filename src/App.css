@@ -8,19 +8,24 @@
   position: absolute;
 }
 
+#base {
+  margin-left: 50px;
+}
+
 #chatbox {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 
 .drag {
   border-radius: 25%;
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 
 .drag:hover, .drag:active {
@@ -57,8 +62,8 @@
 
 .swapper {
   border-radius: 25%;
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -71,10 +76,35 @@
 
 }
 
+.closer {
+  border-radius: 25%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.closer:hover, .closer:active {
+  background-color: red;
+  transition: ease 0.1s all;
+  transform: scale(1.2);
+
+}
+
 .row {
-  margin: 0 auto;
+  height: 720px;
 }
 
 .row > div {
+  margin: 0 auto;
   padding: 0;
+}
+
+#main-navbar {
+  margin-bottom: 10px;
+  border-radius: 0px;
+  box-shadow: 1px 1px 4px #17141F;
+  background-color: #EFEEF1;
+  color:;
 }

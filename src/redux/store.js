@@ -29,8 +29,6 @@ const defaultState = {
         resize: false
     },
     controls: {
-        '1': 'pip',
-        '2': 'base',
         baseZ: 1
     },
     chat: {
@@ -38,7 +36,8 @@ const defaultState = {
             height: '600',
             width: '250'
         }
-    }
+    },
+    application: []
 }
 
 const store = createStore(rootReducer, defaultState);

@@ -4,6 +4,7 @@ import {Icon} from 'react-fa'
 
 
 class TwitchPlayer extends Component {
+
     componentDidMount() {
 
         let { info } = this.props;
@@ -16,33 +17,40 @@ class TwitchPlayer extends Component {
 
         this.player = new Twitch.Player(info.name, options);
 
-        console.log('twitchprops', this.props)
         this.player.setVolume(0.5);
+        this.player.setQuality(info.size === 'base' ? 'high' : 'low');
+        this.player.setMuted(info.muted ? true : false);
         this.player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
     }
 
     render() {
-        // console.log('kids',document.getElementById(this.props.info.name).childNodes)
+
         let { style } = this.props;
         let { info } = this.props;
         let { pip } = this.props;
         let dragPip = this.props.dragPip;
         let resizePip = this.props.resizePip;
         let toggleResize = this.props.toggleResize;
-        let swapPositions = this.props.swapPositions;
+
+        let swap = function() {
+            return this.props.swapPositions(info.name);
+        }
+
+        let close = function(e) {
+            return this.props.closePlayer(info.id);
+        }
 
         let enabler = style.enabled ? true : false;
-        console.log('muted?',this.props.info.muted)
 
         //handle stream muting
         let muted = this.props.info.muted ? true : false;
+
         if (this.player) this.player.setMuted(muted);
 
         return (
             <Draggable cancel=".resizer" bounds="parent" disabled={ pip.disabled || !enabler }>
 
                 <div style={ style } id={ info.name } className={enabler ? "pip" : "base"}>
-
 
                     <div onMouseDown={dragPip.bind(null)} onMouseUp={dragPip.bind(null)} className={enabler ? "drag" : null}>
                         <Icon className='small-button' name='arrows'></Icon>
@@ -55,9 +63,11 @@ class TwitchPlayer extends Component {
                         <img className='icon' id='resizepng' src="/Resize2.png" />
                     </div>}
 
-                    {enabler && <div className="swapper" onClick={swapPositions.bind(null)}>
+                    {enabler && <div className="swapper" onClick={swap.bind(this)}>
                         <Icon className='small-button' name='expand'></Icon>
                     </div>}
+                    
+                    {enabler && <div className="closer" onClick={close.bind(this)}></div>}
 
                 </div>
 

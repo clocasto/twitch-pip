@@ -20,9 +20,24 @@ class ControlPanel extends Component {
 
 }
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let name = this.refs.newstream.value;
+    this.refs.streamform.reset();
+    return this.props.addPlayer(name);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return this.props.addPlayer(e.target.textContent);
+  }
+
   render() {
+
     return (
-      <Navbar inverse>
+      <Navbar id="main-navbar">
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#">Twitch PiP</a>
@@ -34,22 +49,19 @@ class ControlPanel extends Component {
             <NavItem onClick={this.toggleFullScreen} id='fullscreen' eventKey={1} href="#">FullScreen</NavItem>
             <NavItem eventKey={2} href="#">About</NavItem>
             <NavDropdown eventKey={3} title="Memes" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>siractionslacks</MenuItem>
-              <MenuItem eventKey={3.2}>ayylmao</MenuItem>
-              <MenuItem eventKey={3.3}>zekeswirl</MenuItem>
+              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.1}>siractionslacks</MenuItem>
+              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.2}>ayylmao</MenuItem>
+              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.3}>zekeswirl</MenuItem>
               <MenuItem divider />
               <MenuItem eventKey={3.3}>Separated link</MenuItem>
             </NavDropdown>
           </Nav>
           <Nav pullRight>
             <Navbar.Form pullRight>
-              <FormGroup>
-                <FormControl type="text" placeholder="Stream1" />
-                {'  '}
-                <FormControl type="text" placeholder="Stream2" />
-              </FormGroup>
-              {/* {' '}
-              <Button type="submit">Submit</Button> */}
+              <form ref="streamform" onSubmit={this.handleSubmit.bind(this)}>
+                <input type="text" ref="newstream" placeholder="Stream Name" />
+                <button type="submit">Add Stream</button>
+              </form>
             </Navbar.Form>
           </Nav>
         </Navbar.Collapse>

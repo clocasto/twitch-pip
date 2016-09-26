@@ -9,13 +9,11 @@ class Main extends Component {
   render() {
     return (
       <div className="App row">
-      	<Navigation />
-        <div className="col-md-9">
-          <Player {...this.props} />
-        </div>
-        <div id="chatbox" className="col-md-3">
+      	<Navigation {...this.props} />
+          <div id="base" className="col-md-8 col-lg-8 col-lg-offset-1">
+            <Player {...this.props} />
+          </div>
           <Chat {...this.props}/>
-        </div>
       </div>
     );
   }

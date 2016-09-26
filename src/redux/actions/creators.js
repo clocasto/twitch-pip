@@ -1,8 +1,9 @@
-export function swapPositions() {
-    let node = document.getElementsByClassName('pip')[0];
-    node.style.setProperty('transform', 'none');
+export function swapPositions(id) {
+    document.getElementById(id).style.setProperty('transform', 'none');
+
     return {
-        type: 'TOGGLE_POSITIONS'
+        type: 'TOGGLE_POSITIONS',
+        base: id
     }
 }
 
@@ -66,13 +67,6 @@ export function resizePip(event) {
 
 }
 
-export function addPip() {
-
-    return {
-        type: 'ADD_PIP'
-    }
-}
-
 export function resizeChat(height, width) {
 
     return {
@@ -81,5 +75,32 @@ export function resizeChat(height, width) {
             height,
             width
         }
+    }
+}
+
+export function switchChannel(name) {
+
+    return {
+        type: 'SWITCH_CHAT',
+        name
+    }
+}
+
+export function addPlayer(name) {
+
+    return {
+        type: 'ADD_PLAYER',
+        player: {
+            name,
+            source: 'http://www.twitch.tv/' + name + '/chat'
+        }
+    }
+}
+
+export function closePlayer(id) {
+
+    return {
+        type: 'CLOSE_PLAYER',
+        id
     }
 }

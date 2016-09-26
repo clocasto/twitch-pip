@@ -8,7 +8,8 @@ function mapStateToProps(state) {
     return {
         style: state.controls,
         pip: state.pip,
-        chat: state.chat
+        chat: state.chat,
+        app: state.application
     };
 }
 
