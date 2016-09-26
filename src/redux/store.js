@@ -29,16 +29,13 @@ const defaultState = {
         resize: false
     },
     controls: {
-        '1': 'pip',
-        '2': 'base',
         baseZ: 1
     },
     chat: {
         size: {
             height: '600',
             width: '250'
-        },
-        source: 'http://www.twitch.tv/overwatchopen/chat'
+        }
     },
     application: []
 }

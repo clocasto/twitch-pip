@@ -1,7 +1,6 @@
 export function swapPositions(id) {
-    [].slice.apply(document.getElementsByClassName('pip'))
-        .map(node => node.style.setProperty('transform', 'none'));
-    console.log('---->', id)
+    document.getElementById(id).style.setProperty('transform', 'none');
+
     return {
         type: 'TOGGLE_POSITIONS',
         base: id
@@ -98,10 +97,10 @@ export function addPlayer(name) {
     }
 }
 
-export function closePlayer(name) {
-
+export function closePlayer(id) {
+document.getElementById(id).style.setProperty('transform', 'none');
     return {
         type: 'CLOSE_PLAYER',
-        name
+        id
     }
 }

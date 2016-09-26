@@ -3,6 +3,7 @@ import Draggable from 'react-draggable';
 
 
 class TwitchPlayer extends Component {
+
     componentDidMount() {
 
         let { info } = this.props;
@@ -27,8 +28,14 @@ class TwitchPlayer extends Component {
         let dragPip = this.props.dragPip;
         let resizePip = this.props.resizePip;
         let toggleResize = this.props.toggleResize;
-        let swapPositions = this.props.swapPositions;
-        let switchChannel = this.props.switchChannel;
+
+        let swap = function() {
+            return this.props.swapPositions(info.name);
+        }
+
+        let close = function() {
+            return this.props.closePlayer(info.name);
+        }
 
         let enabler = style.enabled ? true : false;
 
@@ -50,7 +57,9 @@ class TwitchPlayer extends Component {
                         <img className='icon' id='resizepng' src="/Resize2.png" />
                     </div>}
 
-                    {enabler && <div className="swapper" onClick={swapPositions(info.name).bind(null)}></div>}
+                    {enabler && <div className="swapper" onClick={swap.bind(this)}></div>}
+
+                    {enabler && <div className="closer" onClick={close.bind(this)}></div>}
 
                 </div>
 

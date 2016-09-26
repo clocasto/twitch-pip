@@ -12,6 +12,7 @@ class Player extends Component {
 		let toggleResize = this.props.toggleResize;
 		let swapPositions = this.props.swapPositions;
 		let switchChannel = this.props.switchChannel;
+		let closePlayer = this.props.closePlayer;
 
 		const base = {
 		    height: '100%',
@@ -29,21 +30,23 @@ class Player extends Component {
 		let props = this.props;
 
 
-		let makeStyle = function(id) {
-			let config = props.app[id].size;
+		let makeStyle = function(i) {
+			let config = props.app[i].size;
 
-			return {
+			let retConfig = {
 				pip,
 				dragPip,
 				resizePip,
 				toggleResize,
 				swapPositions,
 				switchChannel,
+				closePlayer,
 				info: {
-					name: id.toString(),
-					stream: props.app[id].name,
+					name: i.toString(),
+					stream: props.app[i].name,
 					disabled: false,
-					muted: styles[config].muted
+					muted: styles[config].muted,
+					size: config
 				},
 				style: {
 					height: styles[config].height,
@@ -52,17 +55,19 @@ class Player extends Component {
 					enabled: styles[config].enabled
 				}
 			}
+
+			return retConfig;
 		}
 
 		let pdiv = {
 			position: 'relative',
-			height: '605px',
+			height: '720px',
 			width: '100%'
 		}
 
     return (
     	<div style={pdiv} onMouseMove={pip.resize ? resizePip.bind(null) : null} >
-			{this.props.app.map(player => <TwitchPlayer key={player.id} {...makeStyle(player.id)} />)}
+			{this.props.app.map((player, i) => <TwitchPlayer key={i} id={i} {...makeStyle(i)} />)}
 		</div>
 		);
 	}
