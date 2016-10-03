@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "muicss": "^0.9.0",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.2",
