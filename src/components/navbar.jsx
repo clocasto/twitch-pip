@@ -1,11 +1,24 @@
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button, FormGroup, FormControl } from 'react-bootstrap';
-
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup, FormControl } from 'react-bootstrap';
 import React, { Component } from 'react';
+import Form from 'muicss/lib/react/form';
+import Input from 'muicss/lib/react/input';
+import Button from 'muicss/lib/react/button';
 
 class ControlPanel extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      streamToAdd: ''
+    }
+    this.updateValue = function (evt) {
+      console.log('Stream Added');
+      this.setState({
+        streamToAdd: evt.target.value,
+      });
+    }.bind(this);
+  }
   componentDidMount(){
   this.toggleFullScreen = function() {
-    console.log('ayy')
    let elem = document.getElementById("fullscreen");
    let player = document.getElementById('playercontainer')
    if (elem.requestFullscreen) {
@@ -22,12 +35,11 @@ class ControlPanel extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    let name = this.refs.newstream.value;
-    this.refs.streamform.reset();
-    return this.props.addPlayer(name);
-  }
-
+   e.preventDefault();
+   let name = this.refs.newstream.value;
+   this.props.addPlayer(this.state.streamToAdd);
+   this.state.streamToAdd = ''
+ }
   handleClick(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -48,20 +60,16 @@ class ControlPanel extends Component {
           <Nav>
             <NavItem onClick={this.toggleFullScreen} id='fullscreen' eventKey={1} href="#">FullScreen</NavItem>
             <NavItem eventKey={2} href="#">About</NavItem>
-            <NavDropdown eventKey={3} title="Memes" id="basic-nav-dropdown">
-              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.1}>siractionslacks</MenuItem>
-              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.2}>ayylmao</MenuItem>
-              <MenuItem onClick={this.handleClick.bind(this)} eventKey={3.3}>zekeswirl</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
-            </NavDropdown>
           </Nav>
           <Nav pullRight>
             <Navbar.Form pullRight>
-              <form ref="streamform" onSubmit={this.handleSubmit.bind(this)}>
-                <input type="text" ref="newstream" placeholder="Stream Name" />
-                <button type="submit">Add Stream</button>
-              </form>
+              <Form onSubmit={this.handleSubmit.bind(this)} inline={true}>
+                <Input
+                onChange={this.updateValue.bind(null)}
+                value={this.state.streamToAdd}
+                type="text" ref="newstream" label="Stream Name" floatingLabel={true} />
+                <Button onClick={this.handleSubmit.bind(null, this.state.streamToAdd)} color="primary">Add Stream</Button>
+              </Form>
             </Navbar.Form>
           </Nav>
         </Navbar.Collapse>
