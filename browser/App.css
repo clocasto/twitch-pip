@@ -1,0 +1,110 @@
+.pip {
+  border: 1px solid white;
+  box-shadow: 2px 2px 2px grey;
+  position: absolute;
+}
+
+.base {
+  position: absolute;
+}
+
+#base {
+  margin-left: 50px;
+}
+
+#chatbox {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.drag {
+  border-radius: 25%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.drag:hover, .drag:active {
+  cursor: move;
+  transition: ease 0.1s all;
+  transform: scale(1.2);
+
+}
+
+.small-button {
+  color: #42a5f5;
+  position: absolute
+}
+
+.shield {
+  position: absolute;
+}
+
+.resizer {
+  border-radius: 25%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.resizer:hover, .resizer:active {
+  cursor: pointer;
+  transition: ease 0.1s all;
+  transform: scale(1.2);
+
+}
+
+.swapper {
+  border-radius: 25%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.swapper:hover, .swapper:active {
+  cursor: alias;
+  transition: ease 0.1s all;
+  transform: scale(1.2);
+
+}
+
+.closer {
+  border-radius: 25%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.closer:hover, .closer:active {
+  background-color: red;
+  transition: ease 0.1s all;
+  transform: scale(1.2);
+
+}
+
+.row {
+  height: 720px;
+}
+
+.row > div {
+  margin: 0 auto;
+  padding: 0;
+}
+
+#main-navbar {
+  margin-bottom: 10px;
+  border-radius: 0px;
+  box-shadow: 1px 1px 4px #17141F;
+  background-color: #EFEEF1;
+  color:;
+}
