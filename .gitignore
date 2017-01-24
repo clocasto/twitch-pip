@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules
-server/end/modes
+server/env/modes
 public/dist
 # testing
 coverage
